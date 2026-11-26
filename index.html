@@ -427,6 +427,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // CONTACT FORM
+   // CONTACT FORM
   const contactForm = document.getElementById("contactForm");
-  const formResult =
+  const formResult = document.getElementById("formResult");
+
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    formResult.classList.remove("hidden");
+    contactForm.reset();
+  });
+
+});
+</script>
+<!-- AKHIR TAHAP 9 -->
+
+</body>
+</html>
