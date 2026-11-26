@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-white transition-colors duration-300">
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-white transition-colors duration-300">
 
     
 <!-- TAHAP 2: NAVBAR -->
@@ -738,25 +738,24 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    // DARK MODE
-    const themeBtn = document.getElementById("themeBtn");
+// DARK MODE DAN LIGHT MODE
+const themeBtn = document.getElementById("themeBtn");
 
-    function updateThemeButton() {
-        const dark = document.documentElement.classList.contains("dark");
-        themeBtn.textContent = dark ? "☀️" : "🌙";
-    }
+function updateThemeButton() {
+    const dark = document.documentElement.classList.contains("dark");
+    themeBtn.textContent = dark ? "☀️" : "🌙";
+}
 
+updateThemeButton();
+
+themeBtn.addEventListener("click", function () {
+    document.documentElement.classList.toggle("dark");
+
+    const dark = document.documentElement.classList.contains("dark");
+
+    localStorage.setItem("theme", dark ? "dark" : "light");
     updateThemeButton();
-
-    themeBtn.addEventListener("click", function () {
-        document.documentElement.classList.toggle("dark");
-
-        const dark = document.documentElement.classList.contains("dark");
-
-        localStorage.setItem("theme", dark ? "dark" : "light");
-        updateThemeButton();
-    });
-
+});
     // HAMBURGER MENU
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
