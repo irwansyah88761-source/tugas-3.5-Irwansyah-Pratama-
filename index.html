@@ -1,798 +1,432 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechNova.AI - Future Technology</title>
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TechNova.AI - Future Technology</title>
-
-    <!-- PENGATURAN DARK MODE TAILWIND -->
-    <!-- PENGATURAN DARK MODE TAILWIND -->
-<script>
-    tailwind.config = {
-        darkMode: 'class'
-    };
-</script>
-
-<!-- TAILWIND CSS -->
+<!-- TAILWIND CSS (Play CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- MENGINGAT TEMA YANG DIPILIH -->
-    <script>
-        if (localStorage.getItem("theme") === "dark") {
-            document.documentElement.classList.add("dark");
-        }
-    </script>
+<!-- PENGATURAN DARK MODE TAILWIND (harus SETELAH script CDN) -->
+<script>
+  tailwind.config = { darkMode: 'class' };
+</script>
 
+<!-- MENGINGAT TEMA YANG DIPILIH -->
+<script>
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+</script>
 </head>
 
 <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-white transition-colors duration-300">
 
-    
 <!-- TAHAP 2: NAVBAR -->
-
 <nav class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#home" class="text-2xl font-bold text-blue-700 dark:text-cyan-400">
+      TechNova<span class="text-purple-600 dark:text-purple-400">.AI</span>
+    </a>
 
-        <!-- LOGO -->
-        <a href="#home" class="text-2xl font-bold text-blue-700 dark:text-cyan-400">
-            TechNova<span class="text-purple-600 dark:text-purple-400">.AI</span>
-        </a>
-
-        <!-- MENU DESKTOP -->
-        <div class="hidden md:flex items-center gap-8 font-medium">
-
-            <a href="#home" class="hover:text-blue-600 dark:hover:text-cyan-400">Home</a>
-
-            <a href="#about" class="hover:text-blue-600 dark:hover:text-cyan-400">About</a>
-
-            <a href="#features" class="hover:text-blue-600 dark:hover:text-cyan-400">Features</a>
-
-            <a href="#pricing" class="hover:text-blue-600 dark:hover:text-cyan-400">Pricing</a>
-
-            <a href="#contact" class="hover:text-blue-600 dark:hover:text-cyan-400">Contact</a>
-
-        </div>
-
-        <!-- TOMBOL TEMA DAN HAMBURGER -->
-        <div class="flex items-center gap-3">
-
-            <!-- DARK MODE / LIGHT MODE -->
-            <button id="themeBtn"
-                type="button"
-                class="text-2xl p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-                aria-label="Ganti tema">
-                🌙
-            </button>
-
-            <!-- HAMBURGER -->
-            <button id="menuBtn"
-                type="button"
-                class="md:hidden text-3xl text-blue-700 dark:text-white"
-                aria-label="Buka menu"
-                aria-expanded="false">
-                ☰
-            </button>
-
-        </div>
-
+    <div class="hidden md:flex items-center gap-8 font-medium">
+      <a href="#home" class="hover:text-blue-600 dark:hover:text-cyan-400">Home</a>
+      <a href="#about" class="hover:text-blue-600 dark:hover:text-cyan-400">About</a>
+      <a href="#features" class="hover:text-blue-600 dark:hover:text-cyan-400">Features</a>
+      <a href="#pricing" class="hover:text-blue-600 dark:hover:text-cyan-400">Pricing</a>
+      <a href="#contact" class="hover:text-blue-600 dark:hover:text-cyan-400">Contact</a>
     </div>
 
-    <!-- MENU MOBILE -->
-    <div id="mobileMenu"
-        class="hidden md:hidden bg-blue-50 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 px-6 py-5 space-y-4">
+    <div class="flex items-center gap-3">
+      <button id="themeBtn" type="button"
+        class="text-2xl p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+        aria-label="Ganti tema">🌙</button>
 
-        <a href="#home" class="block hover:text-blue-600 dark:hover:text-cyan-400">Home</a>
-
-        <a href="#about" class="block hover:text-blue-600 dark:hover:text-cyan-400">About</a>
-
-        <a href="#features" class="block hover:text-blue-600 dark:hover:text-cyan-400">Features</a>
-
-        <a href="#pricing" class="block hover:text-blue-600 dark:hover:text-cyan-400">Pricing</a>
-
-        <a href="#contact" class="block hover:text-blue-600 dark:hover:text-cyan-400">Contact</a>
-
+      <button id="menuBtn" type="button"
+        class="md:hidden text-3xl text-blue-700 dark:text-white"
+        aria-label="Buka menu" aria-expanded="false">☰</button>
     </div>
+  </div>
 
+  <div id="mobileMenu"
+    class="hidden md:hidden bg-blue-50 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 px-6 py-5 space-y-4">
+    <a href="#home" class="block hover:text-blue-600 dark:hover:text-cyan-400">Home</a>
+    <a href="#about" class="block hover:text-blue-600 dark:hover:text-cyan-400">About</a>
+    <a href="#features" class="block hover:text-blue-600 dark:hover:text-cyan-400">Features</a>
+    <a href="#pricing" class="block hover:text-blue-600 dark:hover:text-cyan-400">Pricing</a>
+    <a href="#contact" class="block hover:text-blue-600 dark:hover:text-cyan-400">Contact</a>
+  </div>
 </nav>
-
 <!-- AKHIR TAHAP 2 -->
-    
+
 <!-- TAHAP 3: HERO SECTION -->
-
 <section id="home"
-    class="relative overflow-hidden bg-gradient-to-br from-blue-950 via-indigo-900 to-purple-900 dark:from-slate-950 dark:via-blue-950 dark:to-purple-950 text-white py-28 md:py-36">
+  class="relative overflow-hidden bg-gradient-to-br from-blue-950 via-indigo-900 to-purple-900 dark:from-slate-950 dark:via-blue-950 dark:to-purple-950 text-white py-28 md:py-36">
 
-    <!-- DEKORASI BACKGROUND -->
-    <div class="absolute top-10 left-10 w-40 h-40 bg-cyan-400/20 rounded-full blur-3xl"></div>
+  <div class="absolute top-10 left-10 w-40 h-40 bg-cyan-400/20 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-10 w-64 h-64 bg-purple-400/30 rounded-full blur-3xl"></div>
 
-    <div class="absolute bottom-0 right-10 w-64 h-64 bg-purple-400/30 rounded-full blur-3xl"></div>
+  <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+    <p class="text-cyan-300 font-bold tracking-widest mb-5">SMART TECHNOLOGY FOR THE FUTURE</p>
 
-    <!-- KONTEN UTAMA -->
-    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-7">
+      Build Your Future With
+      <span class="block text-cyan-300">TechNova.AI</span>
+    </h1>
 
-        <p class="text-cyan-300 font-bold tracking-widest mb-5">
-            SMART TECHNOLOGY FOR THE FUTURE
-        </p>
+    <p class="max-w-2xl mx-auto text-blue-100 text-lg leading-8 mb-10">
+      Discover innovative technology solutions that help
+      you work smarter, faster, and more efficiently.
+    </p>
 
-        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-7">
-
-            Build Your Future With
-
-            <span class="block text-cyan-300">
-                TechNova.AI
-            </span>
-
-        </h1>
-
-        <p class="max-w-2xl mx-auto text-blue-100 text-lg leading-8 mb-10">
-
-            Discover innovative technology solutions that help
-            you work smarter, faster, and more efficiently.
-
-        </p>
-
-        <!-- TOMBOL -->
-        <div class="flex justify-center gap-4 flex-wrap">
-
-            <a href="#pricing"
-                class="bg-cyan-400 text-blue-950 px-8 py-4 rounded-xl font-bold hover:bg-cyan-300 transition duration-300 shadow-lg">
-
-                Get Started →
-
-            </a>
-
-            <a href="#about"
-                class="border border-white/70 px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-950 transition duration-300">
-
-                Learn More
-
-            </a>
-
-        </div>
-
-        <!-- INFORMASI TAMBAHAN -->
-        <div class="mt-16 flex justify-center gap-8 flex-wrap text-sm text-blue-100">
-
-            <span>✦ Smart Innovation</span>
-
-            <span>✦ Modern Technology</span>
-
-            <span>✦ Digital Solutions</span>
-
-        </div>
-
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="#pricing"
+        class="bg-cyan-400 text-blue-950 px-8 py-4 rounded-xl font-bold hover:bg-cyan-300 hover:scale-105 transition duration-300 shadow-lg">
+        Get Started →
+      </a>
+      <a href="#about"
+        class="border border-white/70 px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-950 transition duration-300">
+        Learn More
+      </a>
     </div>
 
+    <div class="mt-16 flex justify-center gap-8 flex-wrap text-sm text-blue-100">
+      <span>✦ Smart Innovation</span>
+      <span>✦ Modern Technology</span>
+      <span>✦ Digital Solutions</span>
+    </div>
+  </div>
 </section>
-
 <!-- AKHIR TAHAP 3 -->
-    
+
 <!-- TAHAP 4: ABOUT SECTION -->
-
 <section id="about"
-    class="py-24 bg-white dark:bg-slate-900 text-slate-800 dark:text-white transition-colors duration-300">
+  class="py-24 bg-white dark:bg-slate-900 text-slate-800 dark:text-white transition-colors duration-300">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest mb-3">ABOUT US</p>
 
-        <!-- BAGIAN KIRI -->
-        <div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Technology That Makes a
+        <span class="text-purple-600 dark:text-purple-400">Difference</span>
+      </h2>
 
-            <p class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest mb-3">
-                ABOUT US
-            </p>
+      <p class="text-slate-600 dark:text-slate-300 leading-8 mb-5">
+        TechNova.AI merupakan konsep platform teknologi yang berfokus pada
+        inovasi digital dan kecerdasan buatan untuk membantu aktivitas menjadi lebih mudah.
+      </p>
 
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                Technology That Makes a
-                <span class="text-purple-600 dark:text-purple-400">
-                    Difference
-                </span>
-            </h2>
+      <p class="text-slate-600 dark:text-slate-300 leading-8">
+        Kami percaya bahwa teknologi dapat membuka peluang baru dan membantu
+        menciptakan masa depan yang lebih baik.
+      </p>
 
-            <p class="text-slate-600 dark:text-slate-300 leading-8 mb-5">
-                TechNova.AI merupakan konsep platform teknologi
-                yang berfokus pada inovasi digital dan kecerdasan
-                buatan untuk membantu aktivitas menjadi lebih mudah.
-            </p>
-
-            <p class="text-slate-600 dark:text-slate-300 leading-8">
-                Kami percaya bahwa teknologi dapat membuka
-                peluang baru dan membantu menciptakan masa depan
-                yang lebih baik.
-            </p>
-
-            <a href="#features"
-                class="inline-block mt-7 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-7 py-3 rounded-xl font-semibold hover:opacity-90 transition">
-
-                Explore Features →
-
-            </a>
-
-        </div>
-
-        <!-- BAGIAN KANAN -->
-        <div class="bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-200 dark:from-slate-800 dark:via-indigo-950 dark:to-purple-950 rounded-3xl p-10 text-center shadow-lg transition-colors duration-300">
-
-            <div class="text-8xl mb-6">
-                🚀
-            </div>
-
-            <h3 class="text-2xl font-bold text-blue-950 dark:text-white">
-                Innovation Starts Here
-            </h3>
-
-            <p class="text-slate-600 dark:text-slate-300 mt-4 leading-7">
-                Explore new possibilities with modern technology
-                and creative digital solutions.
-            </p>
-
-            <!-- KARTU KECIL -->
-            <div class="grid grid-cols-2 gap-4 mt-8">
-
-                <div class="bg-white dark:bg-slate-700 rounded-xl p-4 shadow-sm">
-
-                    <p class="text-3xl">🤖</p>
-
-                    <p class="font-bold text-blue-800 dark:text-cyan-300 mt-2">
-                        AI Technology
-                    </p>
-
-                </div>
-
-                <div class="bg-white dark:bg-slate-700 rounded-xl p-4 shadow-sm">
-
-                    <p class="text-3xl">💡</p>
-
-                    <p class="font-bold text-purple-800 dark:text-purple-300 mt-2">
-                        Innovation
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
+      <a href="#features"
+        class="inline-block mt-7 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-7 py-3 rounded-xl font-semibold hover:opacity-90 transition">
+        Explore Features →
+      </a>
     </div>
 
-</section>
+    <div class="bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-200 dark:from-slate-800 dark:via-indigo-950 dark:to-purple-950 rounded-3xl p-10 text-center shadow-lg transition-colors duration-300">
+      <div class="text-8xl mb-6">🚀</div>
+      <h3 class="text-2xl font-bold text-blue-950 dark:text-white">Innovation Starts Here</h3>
+      <p class="text-slate-600 dark:text-slate-300 mt-4 leading-7">
+        Explore new possibilities with modern technology and creative digital solutions.
+      </p>
 
+      <div class="grid grid-cols-2 gap-4 mt-8">
+        <div class="bg-white dark:bg-slate-700 rounded-xl p-4 shadow-sm">
+          <p class="text-3xl">🤖</p>
+          <p class="font-bold text-blue-800 dark:text-cyan-300 mt-2">AI Technology</p>
+        </div>
+        <div class="bg-white dark:bg-slate-700 rounded-xl p-4 shadow-sm">
+          <p class="text-3xl">💡</p>
+          <p class="font-bold text-purple-800 dark:text-purple-300 mt-2">Innovation</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 <!-- AKHIR TAHAP 4 -->
-    
+
 <!-- TAHAP 5: FEATURES SECTION -->
-
 <section id="features"
-    class="py-24 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white transition-colors duration-300">
+  class="py-24 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6">
 
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest">OUR FEATURES</p>
+      <h2 class="text-3xl md:text-4xl font-bold mt-3">
+        What We <span class="text-purple-600 dark:text-purple-400">Provide</span>
+      </h2>
+      <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
+        Explore innovative features designed to support your digital activities.
+      </p>
+    </div>
 
-        <!-- JUDUL -->
-        <div class="text-center mb-14">
+    <!-- Sesuai LKPD: grid-cols-1 md:grid-cols-3 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
 
-            <p class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest">
-                OUR FEATURES
-            </p>
+      <div class="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">🤖</div>
+        <h3 class="font-bold text-xl mb-3">AI Assistant</h3>
+        <p class="text-slate-600 dark:text-slate-300 leading-7">Membantu menyelesaikan pekerjaan dengan teknologi kecerdasan buatan.</p>
+      </div>
 
-            <h2 class="text-3xl md:text-4xl font-bold mt-3">
-                What We
-                <span class="text-purple-600 dark:text-purple-400">
-                    Provide
-                </span>
-            </h2>
+      <div class="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">⚡</div>
+        <h3 class="font-bold text-xl mb-3">Fast Performance</h3>
+        <p class="text-slate-600 dark:text-slate-300 leading-7">Memberikan pengalaman penggunaan yang cepat dan efisien.</p>
+      </div>
 
-            <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
-                Explore innovative features designed to support
-                your digital activities.
-            </p>
+      <div class="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-cyan-100 dark:bg-cyan-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">🔒</div>
+        <h3 class="font-bold text-xl mb-3">Data Security</h3>
+        <p class="text-slate-600 dark:text-slate-300 leading-7">Mengutamakan perlindungan dan keamanan informasi pengguna.</p>
+      </div>
 
+      <div class="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">📊</div>
+        <h3 class="font-bold text-xl mb-3">Smart Analytics</h3>
+        <p class="text-slate-600 dark:text-slate-300 leading-7">Membantu memahami informasi melalui analisis data.</p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">🌐</div>
+        <h3 class="font-bold text-xl mb-3">Cloud Access</h3>
+        <p class="text-slate-600 dark:text-slate-300 leading-7">Mendukung akses layanan melalui jaringan internet.</p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">💡</div>
+        <h3 class="font-bold text-xl mb-3">Innovation</h3>
+        <p class="text-slate-600 dark:text-slate-300 leading-7">Menghadirkan ide dan solusi digital yang kreatif.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- AKHIR TAHAP 5 -->
+
+<!-- TAHAP 6: PRICING SECTION -->
+<section id="pricing"
+  class="py-24 bg-white dark:bg-slate-900 text-slate-800 dark:text-white transition-colors duration-300">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-14">
+      <p class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest">OUR PRICING</p>
+      <h2 class="text-3xl md:text-4xl font-bold mt-3">
+        Choose Your <span class="text-purple-600 dark:text-purple-400">Plan</span>
+      </h2>
+      <p class="text-slate-500 dark:text-slate-400 mt-4">Select the plan that fits your needs.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+      <!-- BASIC PLAN -->
+      <div class="bg-slate-50 dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 rounded-3xl p-8 shadow-md transition-colors duration-300">
+        <p class="text-blue-700 dark:text-cyan-400 font-bold mb-3">BASIC PLAN</p>
+        <h3 class="text-3xl font-bold mb-2">Free</h3>
+        <p class="text-slate-500 dark:text-slate-400 mb-8">Cocok untuk pengguna pemula.</p>
+
+        <div class="space-y-4 mb-9 text-slate-700 dark:text-slate-300">
+          <p>✓ Akses fitur dasar</p>
+          <p>✓ AI Assistant</p>
+          <p>✓ Penggunaan standar</p>
+          <p>✓ Dukungan komunitas</p>
         </div>
 
-        <!-- KARTU FITUR -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        <a href="#contact"
+          class="block text-center border-2 border-blue-600 dark:border-cyan-400 text-blue-700 dark:text-cyan-300 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-400 dark:hover:text-slate-950 transition">
+          Get Started
+        </a>
+      </div>
 
-            <!-- FEATURE 1 -->
-            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+      <!-- PRO PLAN -->
+      <div class="bg-gradient-to-br from-blue-950 via-indigo-900 to-purple-900 dark:from-blue-950 dark:via-slate-900 dark:to-purple-950 text-white rounded-3xl p-8 shadow-xl relative overflow-hidden">
+        <div class="absolute top-5 right-5 bg-cyan-300 text-blue-950 text-xs font-bold px-4 py-2 rounded-full">POPULAR</div>
 
-                <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">
-                    🤖
-                </div>
+        <p class="text-cyan-300 font-bold mb-3">PRO PLAN</p>
+        <h3 class="text-3xl font-bold mb-2">Premium</h3>
+        <p class="text-blue-100 mb-8">Untuk kebutuhan yang lebih lengkap.</p>
 
-                <h3 class="font-bold text-xl mb-3">
-                    AI Assistant
-                </h3>
-
-                <p class="text-slate-600 dark:text-slate-400 leading-7">
-                    Membantu menyelesaikan pekerjaan dengan teknologi kecerdasan buatan.
-                </p>
-
-            </div>
-
-            <!-- FEATURE 2 -->
-            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition duration-300">
-
-                <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">
-                    ⚡
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-                    Fast Performance
-                </h3>
-
-                <p class="text-slate-600 dark:text-slate-400 leading-7">
-                    Memberikan pengalaman penggunaan yang cepat dan efisien.
-                </p>
-
-            </div>
-
-            <!-- FEATURE 3 -->
-            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition duration-300">
-
-                <div class="w-16 h-16 bg-cyan-100 dark:bg-cyan-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">
-                    🔒
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-                    Data Security
-                </h3>
-
-                <p class="text-slate-600 dark:text-slate-400 leading-7">
-                    Mengutamakan perlindungan dan keamanan informasi pengguna.
-                </p>
-
-            </div>
-
-            <!-- FEATURE 4 -->
-            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition duration-300">
-
-                <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">
-                    📊
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-                    Smart Analytics
-                </h3>
-
-                <p class="text-slate-600 dark:text-slate-400 leading-7">
-                    Membantu memahami informasi melalui analisis data.
-                </p>
-
-            </div>
-
-            <!-- FEATURE 5 -->
-            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition duration-300">
-
-                <div class="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">
-                    🌐
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-                    Cloud Access
-                </h3>
-
-                <p class="text-slate-600 dark:text-slate-400 leading-7">
-                    Mendukung akses layanan melalui jaringan internet.
-                </p>
-
-            </div>
-
-            <!-- FEATURE 6 -->
-            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition duration-300">
-
-                <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/50 rounded-2xl flex items-center justify-center text-4xl mb-6">
-                    💡
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-                    Innovation
-                </h3>
-
-                <p class="text-slate-600 dark:text-slate-400 leading-7">
-                    Menghadirkan ide dan solusi digital yang kreatif.
-                </p>
-
-            </div>
-
+        <div class="space-y-4 mb-9 text-blue-50">
+          <p>✓ Semua fitur Basic</p>
+          <p>✓ Fitur AI lebih lengkap</p>
+          <p>✓ Analisis data</p>
+          <p>✓ Prioritas dukungan</p>
         </div>
+
+        <a href="#contact"
+          class="block text-center bg-cyan-300 text-blue-950 py-3 rounded-xl font-bold hover:bg-cyan-200 transition">
+          Choose Pro
+        </a>
+      </div>
 
     </div>
 
+    <p class="text-center text-slate-400 dark:text-slate-500 text-sm mt-8">
+      *Paket di atas merupakan contoh konsep layanan TechNova.AI.
+    </p>
+  </div>
 </section>
+<!-- AKHIR TAHAP 6 -->
 
-<!-- AKHIR TAHAP 5 -->
-    
-<!-- TAHAP 6: PRICING SECTION -->
+<!-- TAHAP 7: CONTACT SECTION -->
+<section id="contact"
+  class="py-24 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white transition-colors duration-300">
+  <div class="max-w-6xl mx-auto px-6">
 
-<section id="pricing"
-    class="py-24 bg-white dark:bg-slate-900 text-slate-800 dark:text-white transition-colors duration-300">
+    <div class="text-center mb-14">
+      <p class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest">CONTACT US</p>
+      <h2 class="text-3xl md:text-4xl font-bold mt-3">
+        Get In <span class="text-purple-600 dark:text-purple-400">Touch</span>
+      </h2>
+      <p class="text-slate-500 dark:text-slate-400 mt-4">Have a question? Send us a message.</p>
+    </div>
 
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-2xl mx-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-8 md:p-10 transition-colors duration-300">
 
-        <!-- JUDUL -->
-        <div class="text-center mb-14">
+      <form id="contactForm" class="space-y-6">
 
-            <p class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest">
-                OUR PRICING
-            </p>
-
-            <h2 class="text-3xl md:text-4xl font-bold mt-3">
-                Choose Your
-                <span class="text-purple-600 dark:text-purple-400">
-                    Plan
-                </span>
-            </h2>
-
-            <p class="text-slate-500 dark:text-slate-400 mt-4">
-                Select the plan that fits your needs.
-            </p>
-
+        <div>
+          <label for="name" class="block font-semibold mb-2">Your Name</label>
+          <input type="text" id="name" placeholder="Masukkan nama kamu" required
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white placeholder-slate-400 rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900">
         </div>
 
-        <!-- KARTU PAKET -->
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-            <!-- BASIC PLAN -->
-            <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 shadow-md transition-colors duration-300">
-
-                <p class="text-blue-700 dark:text-cyan-400 font-bold mb-3">
-                    BASIC PLAN
-                </p>
-
-                <h3 class="text-3xl font-bold mb-2">
-                    Free
-                </h3>
-
-                <p class="text-slate-500 dark:text-slate-400 mb-8">
-                    Cocok untuk pengguna pemula.
-                </p>
-
-                <div class="space-y-4 mb-9 text-slate-700 dark:text-slate-300">
-
-                    <p>✓ Akses fitur dasar</p>
-                    <p>✓ AI Assistant</p>
-                    <p>✓ Penggunaan standar</p>
-                    <p>✓ Dukungan komunitas</p>
-
-                </div>
-
-                <a href="#contact"
-                    class="block text-center border-2 border-blue-600 dark:border-cyan-400 text-blue-700 dark:text-cyan-300 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white dark:hover:bg-cyan-400 dark:hover:text-slate-950 transition">
-
-                    Get Started
-
-                </a>
-
-            </div>
-
-            <!-- PRO PLAN -->
-            <div class="bg-gradient-to-br from-blue-950 via-indigo-900 to-purple-900 dark:from-blue-950 dark:via-slate-900 dark:to-purple-950 text-white rounded-3xl p-8 shadow-xl relative overflow-hidden">
-
-                <!-- LABEL POPULAR -->
-                <div class="absolute top-5 right-5 bg-cyan-300 text-blue-950 text-xs font-bold px-4 py-2 rounded-full">
-                    POPULAR
-                </div>
-
-                <p class="text-cyan-300 font-bold mb-3">
-                    PRO PLAN
-                </p>
-
-                <h3 class="text-3xl font-bold mb-2">
-                    Premium
-                </h3>
-
-                <p class="text-blue-100 mb-8">
-                    Untuk kebutuhan yang lebih lengkap.
-                </p>
-
-                <div class="space-y-4 mb-9 text-blue-50">
-
-                    <p>✓ Semua fitur Basic</p>
-                    <p>✓ Fitur AI lebih lengkap</p>
-                    <p>✓ Analisis data</p>
-                    <p>✓ Prioritas dukungan</p>
-
-                </div>
-
-                <a href="#contact"
-                    class="block text-center bg-cyan-300 text-blue-950 py-3 rounded-xl font-bold hover:bg-cyan-200 transition">
-
-                    Choose Pro
-
-                </a>
-
-            </div>
-
+        <div>
+          <label for="email" class="block font-semibold mb-2">Your Email</label>
+          <input type="email" id="email" placeholder="Masukkan email kamu" required
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white placeholder-slate-400 rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900">
         </div>
 
-        <p class="text-center text-slate-400 dark:text-slate-500 text-sm mt-8">
-            *Paket di atas merupakan contoh konsep layanan TechNova.AI.
+        <div>
+          <label for="message" class="block font-semibold mb-2">Your Message</label>
+          <textarea id="message" rows="5" placeholder="Tulis pesan kamu..." required
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white placeholder-slate-400 rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-bold hover:opacity-90 transition">
+          Send Message
+        </button>
+
+        <p id="formResult" class="hidden text-center text-green-600 dark:text-green-400 font-semibold">
+          ✓ Pesan berhasil dikirim!
         </p>
 
+      </form>
     </div>
 
+  </div>
 </section>
-
-<!-- AKHIR TAHAP 6 -->
-    
-<!-- TAHAP 7: CONTACT SECTION -->
-
-<section id="contact"
-    class="py-24 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white transition-colors duration-300">
-
-    <div class="max-w-6xl mx-auto px-6">
-
-        <!-- JUDUL -->
-        <div class="text-center mb-14">
-
-            <p class="text-blue-600 dark:text-cyan-400 font-bold tracking-widest">
-                CONTACT US
-            </p>
-
-            <h2 class="text-3xl md:text-4xl font-bold mt-3">
-                Get In
-                <span class="text-purple-600 dark:text-purple-400">
-                    Touch
-                </span>
-            </h2>
-
-            <p class="text-slate-500 dark:text-slate-400 mt-4">
-                Have a question? Send us a message.
-            </p>
-
-        </div>
-
-        <!-- FORM KONTAK -->
-        <div class="max-w-2xl mx-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-lg p-8 md:p-10 transition-colors duration-300">
-
-            <form id="contactForm" class="space-y-6">
-
-                <!-- NAMA -->
-                <div>
-
-                    <label for="name" class="block font-semibold mb-2">
-                        Your Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Masukkan nama kamu"
-                        required
-                        class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white placeholder-slate-400 rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900">
-
-                </div>
-
-                <!-- EMAIL -->
-                <div>
-
-                    <label for="email" class="block font-semibold mb-2">
-                        Your Email
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Masukkan email kamu"
-                        required
-                        class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white placeholder-slate-400 rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900">
-
-                </div>
-
-                <!-- PESAN -->
-                <div>
-
-                    <label for="message" class="block font-semibold mb-2">
-                        Your Message
-                    </label>
-
-                    <textarea
-                        id="message"
-                        rows="5"
-                        placeholder="Tulis pesan kamu..."
-                        required
-                        class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white placeholder-slate-400 rounded-xl px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900"></textarea>
-
-                </div>
-
-                <!-- TOMBOL -->
-                <button
-                    type="submit"
-                    class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-bold hover:opacity-90 transition">
-
-                    Send Message →
-
-                </button>
-
-                <!-- NOTIFIKASI -->
-                <p id="formResult"
-                    role="status"
-                    class="hidden text-center text-green-600 dark:text-green-400 font-semibold">
-
-                    Pesan berhasil dikirim! Terima kasih.
-
-                </p>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
 <!-- AKHIR TAHAP 7 -->
-    
+
 <!-- TAHAP 8: FOOTER SECTION -->
-
 <footer class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white border-t border-slate-200 dark:border-slate-800 pt-14 pb-8 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6">
 
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-10 pb-10">
 
-        <div class="grid md:grid-cols-3 gap-10 pb-10">
+      <!-- LOGO DAN DESKRIPSI -->
+      <div>
+        <h2 class="text-2xl font-bold mb-4 text-blue-700 dark:text-cyan-400">
+          TechNova<span class="text-purple-600 dark:text-purple-400">.AI</span>
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 leading-7">
+          Exploring innovation and modern technology to create a smarter digital future.
+        </p>
+      </div>
 
-            <!-- LOGO DAN DESKRIPSI -->
-            <div>
+      <!-- QUICK LINKS -->
+      <div>
+        <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+        <div class="space-y-3 text-slate-600 dark:text-slate-400">
+          <a href="#home" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">Home</a>
+          <a href="#about" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">About</a>
+          <a href="#features" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">Features</a>
+          <a href="#pricing" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">Pricing</a>
+          <a href="#contact" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">Contact</a>
+        </div>
+      </div>
 
-                <h2 class="text-2xl font-bold mb-4 text-blue-700 dark:text-cyan-400">
-                    TechNova<span class="text-purple-600 dark:text-purple-400">.AI</span>
-                </h2>
+      <!-- SOCIAL MEDIA + KONTAK -->
+      <div>
+        <h3 class="font-bold text-lg mb-4">Follow Us</h3>
+        <p class="text-slate-600 dark:text-slate-400 mb-4">Connect with us on social media.</p>
 
-                <p class="text-slate-600 dark:text-slate-400 leading-7">
-                    Exploring innovation and modern technology
-                    to create a smarter digital future.
-                </p>
-
-            </div>
-
-            <!-- QUICK LINKS -->
-            <div>
-
-                <h3 class="font-bold text-lg mb-4">
-                    Quick Links
-                </h3>
-
-                <div class="space-y-3 text-slate-600 dark:text-slate-400">
-
-                    <a href="#home" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">
-                        Home
-                    </a>
-
-                    <a href="#about" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">
-                        About
-                    </a>
-
-                    <a href="#features" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">
-                        Features
-                    </a>
-
-                    <a href="#pricing" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">
-                        Pricing
-                    </a>
-
-                    <a href="#contact" class="block hover:text-blue-600 dark:hover:text-cyan-400 transition">
-                        Contact
-                    </a>
-
-                </div>
-
-            </div>
-
-            <!-- SOCIAL MEDIA -->
-            <div>
-
-                <h3 class="font-bold text-lg mb-4">
-                    Follow Us
-                </h3>
-
-                <p class="text-slate-600 dark:text-slate-400 mb-4">
-                    Connect with us on social media.
-                </p>
-
-                <div class="flex gap-4 text-2xl">
-
-                    <a href="#" aria-label="Instagram"
-                        class="hover:text-blue-600 dark:hover:text-cyan-400 transition">
-                        📷
-                    </a>
-
-                    <a href="#" aria-label="Facebook"
-                        class="hover:text-blue-600 dark:hover:text-cyan-400 transition">
-                        📘
-                    </a>
-
-                    <a href="#" aria-label="YouTube"
-                        class="hover:text-blue-600 dark:hover:text-cyan-400 transition">
-                        ▶️
-                    </a>
-
-                </div>
-
-            </div>
-
+        <div class="flex gap-4 text-2xl">
+        <a href="https://www.instagram.com/irwansyah_pratamaa?knvt=aHR3Mmllbzd5ZXZw"
+                            target="_blank"
+                            class="hover:text-indigo-400">
+                            Instagram
+                        </a>
         </div>
 
-        <!-- GARIS PEMBATAS -->
-        <div class="border-t border-slate-300 dark:border-slate-700 pt-6 text-center">
-
-            <p class="text-slate-500 dark:text-slate-400 text-sm">
-                © 2026 TechNova.AI. All Rights Reserved.
-            </p>
-
-            <p class="text-slate-400 dark:text-slate-500 text-xs mt-2">
-                Designed with creativity and technology.
-            </p>
-
+        <!-- INFORMASI KONTAK STARTUP -->
+        <div class="mt-5 space-y-1 text-sm text-slate-600 dark:text-slate-400">
+          <p>✉️ iirwansyahpratama@gmail.com</p>
+          <p>📞 +62 831-8264-2042</p>
+          <p>📍 Medan, Sumatera Utara</p>
         </div>
+      </div>
 
     </div>
 
+    <div class="border-t border-slate-300 dark:border-slate-700 pt-6 text-center">
+      <p class="text-slate-500 dark:text-slate-400 text-sm">© 2026 TechNova.AI. All Rights Reserved.</p>
+      <p class="text-slate-400 dark:text-slate-500 text-xs mt-2">Designed with creativity and technology.</p>
+    </div>
+
+  </div>
 </footer>
-
 <!-- AKHIR TAHAP 8 -->
-    
-<!-- TAHAP 9: JAVASCRIPT -->
 
+<!-- TAHAP 9: JAVASCRIPT -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-// DARK MODE DAN LIGHT MODE
-const themeBtn = document.getElementById("themeBtn");
+  // DARK MODE DAN LIGHT MODE
+  const themeBtn = document.getElementById("themeBtn");
 
-function updateThemeButton() {
+  function updateThemeButton() {
     const dark = document.documentElement.classList.contains("dark");
     themeBtn.textContent = dark ? "☀️" : "🌙";
-}
+  }
 
-updateThemeButton();
+  updateThemeButton();
 
-themeBtn.addEventListener("click", function () {
+  themeBtn.addEventListener("click", function () {
     document.documentElement.classList.toggle("dark");
-
     const dark = document.documentElement.classList.contains("dark");
-
     localStorage.setItem("theme", dark ? "dark" : "light");
     updateThemeButton();
-});
-    // HAMBURGER MENU
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+  });
 
-    menuBtn.addEventListener("click", function () {
-        mobileMenu.classList.toggle("hidden");
+  // HAMBURGER MENU
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-        const terbuka = !mobileMenu.classList.contains("hidden");
+  menuBtn.addEventListener("click", function () {
+    mobileMenu.classList.toggle("hidden");
+    const terbuka = !mobileMenu.classList.contains("hidden");
+    menuBtn.textContent = terbuka ? "✕" : "☰";
+    menuBtn.setAttribute("aria-expanded", terbuka);
+  });
 
-        menuBtn.textContent = terbuka ? "✕" : "☰";
-        menuBtn.setAttribute("aria-expanded", terbuka);
+  mobileMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mobileMenu.classList.add("hidden");
+      menuBtn.textContent = "☰";
+      menuBtn.setAttribute("aria-expanded", "false");
     });
+  });
 
-    mobileMenu.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            mobileMenu.classList.add("hidden");
-            menuBtn.textContent = "☰";
-            menuBtn.setAttribute("aria-expanded", "false");
-        });
-    });
-
-    // CONTACT FORM
-    const contactForm = document.getElementById("contactForm");
-    const formResult = document.getElementById("formResult");
-
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        formResult.classList.remove("hidden");
-        contactForm.reset();
-    });
-
-});
-</script>
-
-<!-- AKHIR TAHAP 9 -->
-    
-
-</body>
-
-</html>
+  // CONTACT FORM
+  const contactForm = document.getElementById("contactForm");
+  const formResult =
