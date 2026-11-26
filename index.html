@@ -10,14 +10,15 @@
     <title>TechNova.AI - Future Technology</title>
 
     <!-- PENGATURAN DARK MODE TAILWIND -->
-    <script>
+    <!-- PENGATURAN DARK MODE TAILWIND -->
+<script>
     tailwind.config = {
         darkMode: 'class'
     };
-    </script>
+</script>
 
-    <!-- TAILWIND CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- TAILWIND CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
 
     <!-- MENGINGAT TEMA YANG DIPILIH -->
     <script>
@@ -735,98 +736,59 @@
 <!-- TAHAP 9: JAVASCRIPT -->
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-// ==================================
-// 1. DARK MODE DAN LIGHT MODE
-// ==================================
+    // DARK MODE
+    const themeBtn = document.getElementById("themeBtn");
 
-const themeBtn = document.getElementById("themeBtn");
-
-function updateThemeButton() {
-
-    const darkMode = document.documentElement.classList.contains("dark");
-
-    themeBtn.innerHTML = darkMode ? "☀️" : "🌙";
-
-    themeBtn.setAttribute(
-        "aria-label",
-        darkMode ? "Aktifkan Light Mode" : "Aktifkan Dark Mode"
-    );
-
-}
-
-// Atur ikon sesuai tema yang tersimpan
-updateThemeButton();
-
-// Fungsi mengganti tema
-themeBtn.addEventListener("click", function () {
-
-    document.documentElement.classList.toggle("dark");
-
-    const darkMode = document.documentElement.classList.contains("dark");
-
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
+    function updateThemeButton() {
+        const dark = document.documentElement.classList.contains("dark");
+        themeBtn.textContent = dark ? "☀️" : "🌙";
+    }
 
     updateThemeButton();
 
-});
+    themeBtn.addEventListener("click", function () {
+        document.documentElement.classList.toggle("dark");
 
+        const dark = document.documentElement.classList.contains("dark");
 
-// ==================================
-// 2. MENU HAMBURGER
-// ==================================
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        updateThemeButton();
+    });
 
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
+    // HAMBURGER MENU
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-// Membuka dan menutup menu
-menuBtn.addEventListener("click", function () {
+    menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
 
-    mobileMenu.classList.toggle("hidden");
+        const terbuka = !mobileMenu.classList.contains("hidden");
 
-    const menuTerbuka = !mobileMenu.classList.contains("hidden");
+        menuBtn.textContent = terbuka ? "✕" : "☰";
+        menuBtn.setAttribute("aria-expanded", terbuka);
+    });
 
-    menuBtn.innerHTML = menuTerbuka ? "✕" : "☰";
+    mobileMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            menuBtn.textContent = "☰";
+            menuBtn.setAttribute("aria-expanded", "false");
+        });
+    });
 
-    menuBtn.setAttribute("aria-expanded", menuTerbuka);
+    // CONTACT FORM
+    const contactForm = document.getElementById("contactForm");
+    const formResult = document.getElementById("formResult");
 
-});
-
-// Menutup menu setelah link diklik
-const menuLinks = mobileMenu.querySelectorAll("a");
-
-menuLinks.forEach(function (link) {
-
-    link.addEventListener("click", function () {
-
-        mobileMenu.classList.add("hidden");
-
-        menuBtn.innerHTML = "☰";
-
-        menuBtn.setAttribute("aria-expanded", "false");
-
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        formResult.classList.remove("hidden");
+        contactForm.reset();
     });
 
 });
-
-
-// ==================================
-// 3. CONTACT FORM
-// ==================================
-
-const contactForm = document.getElementById("contactForm");
-const formResult = document.getElementById("formResult");
-
-contactForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-    formResult.classList.remove("hidden");
-
-    contactForm.reset();
-
-});
-
 </script>
 
 <!-- AKHIR TAHAP 9 -->
