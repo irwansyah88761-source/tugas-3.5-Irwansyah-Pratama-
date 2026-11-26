@@ -734,6 +734,105 @@
 
 <!-- AKHIR TAHAP 8 -->
     
+<!-- TAHAP 9: JAVASCRIPT -->
+
+<script>
+
+// ==================================
+// 1. DARK MODE DAN LIGHT MODE
+// ==================================
+
+const themeBtn = document.getElementById("themeBtn");
+
+function updateThemeButton() {
+
+    const darkMode = document.documentElement.classList.contains("dark");
+
+    themeBtn.innerHTML = darkMode ? "☀️" : "🌙";
+
+    themeBtn.setAttribute(
+        "aria-label",
+        darkMode ? "Aktifkan Light Mode" : "Aktifkan Dark Mode"
+    );
+
+}
+
+// Atur ikon sesuai tema yang tersimpan
+updateThemeButton();
+
+// Fungsi mengganti tema
+themeBtn.addEventListener("click", function () {
+
+    document.documentElement.classList.toggle("dark");
+
+    const darkMode = document.documentElement.classList.contains("dark");
+
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+
+    updateThemeButton();
+
+});
+
+
+// ==================================
+// 2. MENU HAMBURGER
+// ==================================
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+// Membuka dan menutup menu
+menuBtn.addEventListener("click", function () {
+
+    mobileMenu.classList.toggle("hidden");
+
+    const menuTerbuka = !mobileMenu.classList.contains("hidden");
+
+    menuBtn.innerHTML = menuTerbuka ? "✕" : "☰";
+
+    menuBtn.setAttribute("aria-expanded", menuTerbuka);
+
+});
+
+// Menutup menu setelah link diklik
+const menuLinks = mobileMenu.querySelectorAll("a");
+
+menuLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        mobileMenu.classList.add("hidden");
+
+        menuBtn.innerHTML = "☰";
+
+        menuBtn.setAttribute("aria-expanded", "false");
+
+    });
+
+});
+
+
+// ==================================
+// 3. CONTACT FORM
+// ==================================
+
+const contactForm = document.getElementById("contactForm");
+const formResult = document.getElementById("formResult");
+
+contactForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    formResult.classList.remove("hidden");
+
+    contactForm.reset();
+
+});
+
+</script>
+
+<!-- AKHIR TAHAP 9 -->
+    
 
 </body>
 
